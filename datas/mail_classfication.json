@@ -1,0 +1,40 @@
+{
+  "name": "Mail",
+  "children": [
+    {
+      "name": "SPAM"
+    },
+    {
+      "name": "Not SPAM",
+      "children": [
+        {
+          "name": "Internal Mail",
+          "children": [
+            {
+              "name": "Business Mail"
+            },
+            {
+              "name": "Not Business Mail"
+            }
+          ]
+        },
+        {
+          "name": "External Mail",
+          "children": [
+            {
+              "name": "Business Mail",
+              "children":[
+                {
+                  "name": "Ordinary Mail"
+                },
+                {
+                  "name": "Very Important Mail"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
