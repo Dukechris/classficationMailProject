@@ -2,37 +2,60 @@
   "name": "Mail",
   "children": [
     {
-      "name": "SPAM"
+      "name": "SPAM",
+      "datasrc": "datas/mailClassification/SPAM.csv"
     },
     {
       "name": "Not SPAM",
       "children": [
         {
-          "name": "Internal Mail",
+          "name": "Business Mail",
           "children": [
             {
-              "name": "Business Mail"
+              "name": "Internal Mail",
+              "children": [
+                {
+                  "name": "Support Mail",
+                  "datasrc": "datas/mailClassification/support_mail.csv"
+                },
+                {
+                  "name": "System Mail",
+                  "datasrc": "datas/mailClassification/system_mail.csv"
+                },
+                {
+                  "name": "Mass Mail",
+                  "datasrc": "datas/mailClassification/mass_mail.csv"
+                },
+                {
+                  "name": "Staff Business Mail",
+                  "datasrc": "datas/mailClassification/staff_biz_mail.csv"
+                }
+              ]
             },
             {
-              "name": "Not Business Mail"
-            }
-          ]
-        },
-        {
-          "name": "External Mail",
-          "children": [
-            {
-              "name": "Business Mail",
-              "children":[
+              "name": "External Mail",
+              "children": [
                 {
                   "name": "Ordinary Mail"
                 },
                 {
-                  "name": "Very Important Mail"
+                  "name": "Very Important Mail",
+                  "datasrc": "datas/mailClassification/ext_important.csv"
                 }
               ]
             }
           ]
+        },
+        {
+          "name": "Not Business Mail",
+          "children": [
+            {
+              "name": "Internal Mail",
+              "datasrc": "datas/mailClassification/not_spam_not_biz_int.csv"
+
+            }
+          ],
+          "datasrc": "datas/mailClassification/not_spam_not_biz_int.csv"
         }
       ]
     }

@@ -10,13 +10,10 @@
 </head>
 <body>
 <div id="chart"></div>
+<div id="mailtable"></div>
 <script type="text/javascript">
 
-    var w = 660,
-            h = 1000,
-            i = 0,
-            duration = 500,
-            root;
+    var w = 660, h = 700, i = 0, duration = 800, root;
 
     var tree = d3.layout.tree()
             .size([h, w - 160]);
@@ -161,6 +158,37 @@
             d._children = null;
         }
         update(d);
+        updateMailList(d.datasrc);
+    }
+
+    // 展示该类别邮件列表
+    function updateMailList(src){
+       // 根据src找到相应的csv,读取邮件列表。
+        d3.text(src, function(datasetText) {
+            var parsedCSV = d3.csv.parseRows(datasetText);
+            // 清空内容
+            document.getElementById('mailtable').innerHTML = "";
+            // 画表
+            var sampleHTML = d3.select("#mailtable")
+                    .append("table")
+                    .style("border-collapse", "collapse")
+                    .style("border", "5px black solid")
+
+                    .selectAll("tr")
+                    .data(parsedCSV)
+                    .enter().append("tr")
+
+                    .selectAll("td")
+                    .data(function(d){return d;})
+                    .enter().append("td")
+                    .style("border", "1px black solid")
+                    .style("padding", "5px")
+                    .on("mouseover", function(){d3.select(this).style("background-color", "aliceblue")})
+                    .on("mouseout", function(){d3.select(this).style("background-color", "white")})
+                    .text(function(d){return d;})
+                    .style("font-size", "12px");
+        });
+
     }
 
     d3.select(self.frameElement).style("height", "1000px");
