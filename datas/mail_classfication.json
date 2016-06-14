@@ -48,13 +48,6 @@
         },
         {
           "name": "Not Business Mail",
-          "children": [
-            {
-              "name": "Internal Mail",
-              "datasrc": "datas/mailClassification/not_spam_not_biz_int.csv"
-
-            }
-          ],
           "datasrc": "datas/mailClassification/not_spam_not_biz_int.csv"
         }
       ]

@@ -13,7 +13,7 @@
 <div id="mailtable"></div>
 <script type="text/javascript">
 
-    var w = 660, h = 700, i = 0, duration = 800, root;
+    var w = 1060, h = 700, i = 0, duration = 800, root;
 
     var tree = d3.layout.tree()
             .size([h, w - 160]);
@@ -85,33 +85,7 @@
                 .attr("transform", function(d) { return "translate(" + source.y + "," + source.x + ")"; })
                 .style("opacity", 1e-6)
                 .remove();
-        /*
-         var nodeTransition = node.transition()
-         .duration(duration);
 
-         nodeTransition.select("circle")
-         .attr("cx", function(d) { return d.y; })
-         .attr("cy", function(d) { return d.x; })
-         .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
-
-         nodeTransition.select("text")
-         .attr("dx", function(d) { return d._children ? -8 : 8; })
-         .attr("dy", 3)
-         .style("fill", function(d) { return d._children ? "lightsteelblue" : "#5babfc"; });
-
-         // Transition exiting nodes to the parent's new position.
-         var nodeExit = node.exit();
-
-         nodeExit.select("circle").transition()
-         .duration(duration)
-         .attr("cx", function(d) { return source.y; })
-         .attr("cy", function(d) { return source.x; })
-         .remove();
-
-         nodeExit.select("text").transition()
-         .duration(duration)
-         .remove();
-         */
         // Update the links…
         var link = vis.selectAll("path.link")
                 .data(tree.links(nodes), function(d) { return d.target.id; });
